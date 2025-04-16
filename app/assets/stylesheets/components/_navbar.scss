@@ -1,12 +1,139 @@
-.navbar-lewagon {
+.navbar-bracken {
   justify-content: space-between;
-  background: white;
+  background: $dark-green;
+  height: 100px;
+  padding: 0px 10px;
+
+  .navbar-collapse {
+    justify-content: flex-end;
+    flex-grow: 1;
+  }
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar-logo {
+  height: 50px;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-nav {
+  display: flex;
+  gap: 32px; // Space evenly between links
+  align-items: center;
+}
+
+.nav-item {
+  padding: 16px;
+
+  .nav-link {
+    color: $light-green;
+    font-weight: bold;
+    padding-right: 0;
+
+    &:hover {
+      color: white;
+    }
+
+    &.nav-brand-large {
+      font-size: 2rem; // adjust as needed
+    }
+  }
+}
+
+// .initials-avatar {
+//   width: 40px;
+//   height: 40px;
+//   border-radius: 50%;
+//   background-color: $light-green;
+//   color: $dark-green;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   font-size: 16px;
+//   font-weight: 500;
+//   text-transform: uppercase;
+//   cursor: pointer;
+//   user-select: none;
+// }
+
+#navbarDropdown::after {
+  display: none !important;
+}
+
+// Style the icon inside the toggler
+.navbar-toggler-icon {
+  display: none;
+}
+
+.navbar-toggler i {
+  color: $light-green;
+  font-size: 1.5rem;
+}
+
+// Slide in from the right animation
+.custom-dropdown {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 33.33vw;
+  background-color: beige;
+  z-index: 1050;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+
+  transform: translateX(100%); // initially hidden offscreen
+  transition: transform 0.3s ease-in-out;
+  pointer-events: none; // prevent interaction when hidden
+  opacity: 0;
+}
+
+.custom-dropdown.slide-in {
+  transform: translateX(0); // slide into view
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.custom-dropdown.slide-out {
+  transform: translateX(100%); // slide out
+  pointer-events: none;
+  opacity: 0;
+}
+
+.custom-dropdown-menu {
+  list-style: none;
+  padding-left: 8px;
+  margin-top: 60px;
+
+  .dropdown-item {
+    color: black;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+
+    &:hover {
+      color: darkgray;
+    }
+  }
+}
+
+.close-button {
+  background: none;
+  border: none;
+  color: $black;
+  font-size: 2rem;
+  align-self: flex-end;
+  cursor: pointer;
+
+  &:hover {
+    color: darkgray;
+  }
+}
+
+.menu-icon {
+  color: $light-green;
+  font-size: 1.5rem;
+
+  &:hover {
+    color: white;
+  }
 }

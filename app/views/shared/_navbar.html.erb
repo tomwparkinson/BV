@@ -1,0 +1,48 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-bracken sticky-top">
+  <div class="container-fluid">
+
+    <!-- Collapse toggle for Bootstrap menu (if used) -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
+      <ul class="navbar-nav w-100 d-flex align-items-center justify-content-between">
+        <li class="nav-item">
+          <%= link_to "Bracken", root_path, class: "nav-link nav-brand-large" %>
+        </li>
+
+        <div class="d-flex ms-auto">
+          <li class="nav-item">
+            <%= link_to "Portfolio", portfolio_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Team", team_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Contact", contact_path, class: "nav-link" %>
+          </li>
+        </div>
+      </ul>
+    </div>
+
+    <!-- Custom Dropdown - WRAPPED IN filter CONTROLLER -->
+    <div data-controller="filter">
+      <!-- Trigger -->
+      <a href="#" class="nav-link" data-action="click->filter#toggle">
+        <i class="fa-solid fa-bars menu-icon"></i>
+      </a>
+
+      <!-- Sliding Dropdown Panel -->
+      <div class="custom-dropdown slide-out" data-filter-target="dropdown" data-action="click@window->filter#outsideClick">
+        <button class="close-button" data-action="click->filter#close">&times;</button>
+        <ul class="custom-dropdown-menu">
+          <li><%= link_to "Portfolio", portfolio_path, class: "dropdown-item" %></li>
+          <li><%= link_to "Team", team_path, class: "dropdown-item" %></li>
+          <li><%= link_to "Contact", contact_path, class: "dropdown-item" %></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
